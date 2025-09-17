@@ -131,6 +131,8 @@ body {
 .hero-content-full {
     width: 100%;
     text-align: center;
+    display: block;
+    margin: 0 auto;
 }
 
 .hero-title {
