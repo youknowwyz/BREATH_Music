@@ -530,20 +530,16 @@ body {
 }
 
 .workflow-step {
-    background: #f8fafc;
-    border-radius: 12px;
-    padding: 20px;
-    border-left: 4px solid #6366f1;
-    transition: all 0.3s ease;
+    padding: 20px 0;
+    border-bottom: 1px solid #e5e7eb;
 }
 
-.workflow-step:hover {
-    background: #f1f5f9;
-    transform: translateX(5px);
+.workflow-step:last-child {
+    border-bottom: none;
 }
 
 .workflow-step h5 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #374151;
     margin-bottom: 10px;
@@ -554,13 +550,14 @@ body {
 
 .workflow-step h5 i {
     color: #6366f1;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .workflow-step p {
     color: #6b7280;
     margin: 0;
     line-height: 1.6;
+    font-size: 1rem;
 }
 
 .cot-steps {
@@ -625,7 +622,7 @@ body {
 }
 
 .criteria-item h6 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #0c4a6e;
     margin-bottom: 8px;
@@ -636,7 +633,7 @@ body {
 
 .criteria-item h6 i {
     color: #0ea5e9;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
 }
 
 .criteria-item p {
