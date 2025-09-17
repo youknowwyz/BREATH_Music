@@ -113,11 +113,15 @@ function createAudioDemo(audioData, index) {
                 <table class="audio-info-table">
                     <tr>
                         <td class="info-label">Radar:</td>
-                        <td class="info-value">HR ${audioData.radar.hr} bpm</td>
+                        <td class="info-value">HR/RR ${audioData.radar.hr}/${audioData.radar.rr}</td>
+                    </tr>
+                    <tr>
+                        <td class="info-label">Tonal:</td>
+                        <td class="info-value">${audioData.tonal}</td>
                     </tr>
                     <tr>
                         <td class="info-label">Agent:</td>
-                        <td class="info-value">${audioData.agent.mode}, ${audioData.agent.instruments}, ${audioData.agent.tempo}, ${audioData.agent.useCase}</td>
+                        <td class="info-value">Mode: ${audioData.agent.mode}, Instruments: ${audioData.agent.instruments}, Tempo: ${audioData.agent.tempo}, Use-case: ${audioData.agent.useCase}</td>
                     </tr>
                     <tr>
                         <td class="info-label">Audio:</td>

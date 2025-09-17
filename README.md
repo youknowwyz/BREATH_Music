@@ -14,13 +14,14 @@
     filename: 'demo1_yu_90bpm.mp3',
     radar: {
         hr: 90,
-        bpm: 90
+        rr: 15
     },
+    tonal: 'Yu',
     agent: {
-        mode: 'MusicGen',
-        instruments: 'Yu',
-        tempo: 90,
-        useCase: 'Traditional Chinese instrument'
+        mode: 'Yu',
+        instruments: 'Erhu, Guzheng',
+        tempo: 'slow',
+        useCase: 'soothe'
     },
     audio: {
         title: 'Yu Demo',
@@ -34,8 +35,9 @@
 每个音频文件会显示：
 - **HTML5 audio标签**：可播放、可下载
 - **信息表格**：
-  - Radar: HR xx bpm
-  - Agent: Mode, Instruments, Tempo, Use-case
+  - Radar: HR/RR 90/15
+  - Tonal: Yu (宫商角徵羽)
+  - Agent: Mode: Yu, Instruments: Erhu, Guzheng, Tempo: slow, Use-case: soothe
   - Audio: 播放按钮
 
 ### 支持的音频格式

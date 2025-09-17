@@ -6,13 +6,14 @@ const audioConfig = [
         filename: 'Gong0.wav',
         radar: {
             hr: 60,
-            bpm: 60
+            rr: 12
         },
+        tonal: 'Yu',
         agent: {
-            mode: 'MusicGen',
+            mode: 'Yu',
             instruments: 'Gong',
-            tempo: 60,
-            useCase: 'Deep resonant sound'
+            tempo: 'slow',
+            useCase: 'soothe'
         },
         audio: {
             title: 'Gong Demo 0',
@@ -23,13 +24,14 @@ const audioConfig = [
         filename: 'Gong1.wav',
         radar: {
             hr: 80,
-            bpm: 80
+            rr: 15
         },
+        tonal: 'Yu',
         agent: {
-            mode: 'MusicGen',
+            mode: 'Yu',
             instruments: 'Gong',
-            tempo: 80,
-            useCase: 'Higher pitched metallic'
+            tempo: 'medium',
+            useCase: 'relax'
         },
         audio: {
             title: 'Gong Demo 1',
@@ -41,13 +43,14 @@ const audioConfig = [
     //     filename: 'demo1_yu_90bpm.mp3',
     //     radar: {
     //         hr: 90,
-    //         bpm: 90
+    //         rr: 15
     //     },
+    //     tonal: 'Yu',
     //     agent: {
-    //         mode: 'MusicGen',
-    //         instruments: 'Yu',
-    //         tempo: 90,
-    //         useCase: 'Traditional Chinese instrument'
+    //         mode: 'Yu',
+    //         instruments: 'Erhu, Guzheng',
+    //         tempo: 'slow',
+    //         useCase: 'soothe'
     //     },
     //     audio: {
     //         title: 'Yu Demo',
