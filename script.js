@@ -618,13 +618,9 @@ const optimizedScrollHandler = debounce(function() {
 
 window.addEventListener('scroll', optimizedScrollHandler);
 
-// 错误处理
+// 错误处理 - 只记录到控制台，不显示通知
 window.addEventListener('error', function(e) {
     console.error('页面发生错误:', e.error);
-    // 只在开发环境或严重错误时显示通知
-    if (e.error && e.error.message && e.error.message.includes('Critical')) {
-        showNotification('页面发生严重错误，请刷新重试', 'error');
-    }
 });
 
 // 页面可见性API - 暂停/恢复音频
