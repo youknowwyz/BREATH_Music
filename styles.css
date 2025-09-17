@@ -259,130 +259,147 @@ body {
     background: white;
 }
 
-.demo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+.audio-demos {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
     margin-bottom: 60px;
 }
 
-.demo-card {
+.audio-demo-item {
     background: white;
-    border-radius: 20px;
+    border-radius: 15px;
     padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
 }
 
-.demo-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+.audio-demo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
-.demo-header {
+.audio-item {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.demo-header h3 {
-    font-size: 1.3rem;
+.audio-title {
+    font-size: 1.4rem;
     font-weight: 600;
     color: #1f2937;
-}
-
-.demo-tag {
-    background: #6366f1;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
+    margin: 0;
+    text-align: center;
 }
 
 .audio-player {
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
 .audio-player audio {
     width: 100%;
+    max-width: 500px;
     height: 50px;
     border-radius: 10px;
 }
 
-.demo-info p {
-    margin-bottom: 10px;
+.audio-download {
+    display: flex;
+    justify-content: center;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: #6366f1;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background: #4f46e5;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+}
+
+.info-table {
+    margin-top: 20px;
+}
+
+.audio-info-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #f8fafc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.audio-info-table tr {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.audio-info-table tr:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    padding: 15px 20px;
+    font-weight: 600;
+    color: #374151;
+    background: #f1f5f9;
+    width: 120px;
+    font-size: 0.9rem;
+}
+
+.info-value {
+    padding: 15px 20px;
     color: #6b7280;
     font-size: 0.9rem;
+    line-height: 1.5;
 }
 
-/* Prompt和参数样式 */
-.prompt-section, .parameters-section {
-    margin-bottom: 20px;
-}
-
-.prompt-section h4, .parameters-section h4 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #374151;
-    margin-bottom: 10px;
-    display: flex;
+.play-btn {
+    display: inline-flex;
     align-items: center;
     gap: 8px;
-}
-
-.prompt-section h4 i, .parameters-section h4 i {
-    color: #6366f1;
-    font-size: 0.9rem;
-}
-
-.prompt-text {
-    background: #f8fafc;
-    padding: 12px;
-    border-radius: 8px;
-    border-left: 4px solid #6366f1;
-    font-style: italic;
-    color: #4b5563;
-    line-height: 1.6;
-    margin: 0;
-}
-
-.parameter-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 8px;
-}
-
-.param-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 12px;
-    background: #f8fafc;
-    border-radius: 6px;
-    border: 1px solid #e5e7eb;
-}
-
-.param-name {
+    padding: 8px 16px;
+    background: #10b981;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.85rem;
     font-weight: 500;
-    color: #374151;
-    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.param-value {
-    font-weight: 600;
-    color: #6366f1;
-    font-size: 0.85rem;
+.play-btn:hover {
+    background: #059669;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(16, 185, 129, 0.3);
 }
 
 /* 无音频文件时的提示样式 */
 .no-audio-message {
-    grid-column: 1 / -1;
     text-align: center;
     padding: 60px 20px;
     color: #6b7280;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
 }
 
 .no-audio-message i {
@@ -687,8 +704,29 @@ body {
         flex-wrap: wrap;
     }
 
-    .demo-grid {
-        grid-template-columns: 1fr;
+    .audio-demos {
+        gap: 20px;
+    }
+    
+    .audio-demo-item {
+        padding: 20px;
+    }
+    
+    .audio-title {
+        font-size: 1.2rem;
+    }
+    
+    .audio-info-table {
+        font-size: 0.8rem;
+    }
+    
+    .info-label {
+        width: 100px;
+        padding: 12px 15px;
+    }
+    
+    .info-value {
+        padding: 12px 15px;
     }
 
     .parameter-grid {

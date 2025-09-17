@@ -6,28 +6,37 @@
 
 ### 添加音频文件
 
-1. 将音频文件放入 `audio/` 目录
+1. 将音频文件放入 `audio/` 目录，建议命名格式：`demo1_yu_90bpm.mp3`
 2. 在 `audio-config.js` 中添加对应的配置信息：
 
 ```javascript
 {
-    filename: 'your-audio-file.wav',
-    title: '音频标题',
-    tag: '音乐类型',
-    prompt: '生成这个音频时使用的prompt',
-    parameters: {
-        temperature: 0.8,
-        max_length: 512,
-        tempo: 120,
-        key_signature: 'C',
-        instrument_type: 'Piano',
-        duration: '5.0s',
-        sample_rate: '44.1kHz',
-        model: 'YourModel',
-        inference_steps: 100
+    filename: 'demo1_yu_90bpm.mp3',
+    radar: {
+        hr: 90,
+        bpm: 90
+    },
+    agent: {
+        mode: 'MusicGen',
+        instruments: 'Yu',
+        tempo: 90,
+        useCase: 'Traditional Chinese instrument'
+    },
+    audio: {
+        title: 'Yu Demo',
+        duration: '4.5s'
     }
 }
 ```
+
+### 显示格式
+
+每个音频文件会显示：
+- **HTML5 audio标签**：可播放、可下载
+- **信息表格**：
+  - Radar: HR xx bpm
+  - Agent: Mode, Instruments, Tempo, Use-case
+  - Audio: 播放按钮
 
 ### 支持的音频格式
 

@@ -1,57 +1,57 @@
 // 音频文件配置
-// 在这里添加你的音频文件和对应的prompt、参数信息
+// 按照新的格式要求配置音频文件
 
 const audioConfig = [
     {
         filename: 'Gong0.wav',
-        title: 'Gong 0',
-        tag: 'Percussion',
-        prompt: 'Generate a deep, resonant gong sound with rich harmonics and a long decay',
-        parameters: {
-            temperature: 0.7,
-            max_length: 256,
+        radar: {
+            hr: 60,
+            bpm: 60
+        },
+        agent: {
+            mode: 'MusicGen',
+            instruments: 'Gong',
             tempo: 60,
-            key_signature: 'C',
-            instrument_type: 'Gong',
-            duration: '3.2s',
-            sample_rate: '44.1kHz',
-            model: 'MusicGen',
-            inference_steps: 50
+            useCase: 'Deep resonant sound'
+        },
+        audio: {
+            title: 'Gong Demo 0',
+            duration: '3.2s'
         }
     },
     {
         filename: 'Gong1.wav',
-        title: 'Gong 1', 
-        tag: 'Percussion',
-        prompt: 'Create a higher-pitched gong with metallic timbre and shorter sustain',
-        parameters: {
-            temperature: 0.8,
-            max_length: 192,
+        radar: {
+            hr: 80,
+            bpm: 80
+        },
+        agent: {
+            mode: 'MusicGen',
+            instruments: 'Gong',
             tempo: 80,
-            key_signature: 'F',
-            instrument_type: 'Gong',
-            duration: '2.8s',
-            sample_rate: '44.1kHz',
-            model: 'MusicGen',
-            inference_steps: 45
+            useCase: 'Higher pitched metallic'
+        },
+        audio: {
+            title: 'Gong Demo 1',
+            duration: '2.8s'
         }
     }
-    // 在这里添加更多音频文件配置
+    // 添加更多音频文件配置示例：
     // {
-    //     filename: 'your-audio-file.wav',
-    //     title: 'Your Title',
-    //     tag: 'Genre',
-    //     prompt: 'Your prompt description',
-    //     parameters: {
-    //         temperature: 0.8,
-    //         max_length: 512,
-    //         tempo: 120,
-    //         key_signature: 'C',
-    //         instrument_type: 'Piano',
-    //         duration: '5.0s',
-    //         sample_rate: '44.1kHz',
-    //         model: 'YourModel',
-    //         inference_steps: 100
+    //     filename: 'demo1_yu_90bpm.mp3',
+    //     radar: {
+    //         hr: 90,
+    //         bpm: 90
+    //     },
+    //     agent: {
+    //         mode: 'MusicGen',
+    //         instruments: 'Yu',
+    //         tempo: 90,
+    //         useCase: 'Traditional Chinese instrument'
+    //     },
+    //     audio: {
+    //         title: 'Yu Demo',
+    //         duration: '4.5s'
     //     }
     // }
 ];

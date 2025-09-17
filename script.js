@@ -64,8 +64,8 @@ function loadAudioDemos() {
     const audioFiles = window.audioConfig || [];
     
     if (audioFiles.length === 0) {
-        const demoGrid = document.getElementById('audio-demo-grid');
-        demoGrid.innerHTML = `
+        const audioDemos = document.getElementById('audio-demos');
+        audioDemos.innerHTML = `
             <div class="no-audio-message">
                 <i class="fas fa-music"></i>
                 <h3>暂无音频文件</h3>
@@ -75,50 +75,81 @@ function loadAudioDemos() {
         return;
     }
 
-    const demoGrid = document.getElementById('audio-demo-grid');
+    const audioDemos = document.getElementById('audio-demos');
     
     audioFiles.forEach((audio, index) => {
-        const demoCard = createAudioDemoCard(audio, index);
-        demoGrid.appendChild(demoCard);
+        const audioDemo = createAudioDemo(audio, index);
+        audioDemos.appendChild(audioDemo);
     });
 }
 
-function createAudioDemoCard(audioData, index) {
-    const card = document.createElement('div');
-    card.className = 'demo-card fade-in-up';
-    card.style.animationDelay = `${index * 0.1}s`;
+function createAudioDemo(audioData, index) {
+    const audioDemo = document.createElement('div');
+    audioDemo.className = 'audio-demo-item fade-in-up';
+    audioDemo.style.animationDelay = `${index * 0.1}s`;
     
-    card.innerHTML = `
-        <div class="demo-header">
-            <h3>${audioData.title}</h3>
-            <span class="demo-tag">${audioData.tag}</span>
-        </div>
-        <div class="audio-player">
-            <audio controls preload="metadata">
-                <source src="audio/${audioData.filename}" type="audio/wav">
-                您的浏览器不支持音频播放。
-            </audio>
-        </div>
-        <div class="demo-info">
-            <div class="prompt-section">
-                <h4><i class="fas fa-quote-left"></i> Prompt</h4>
-                <p class="prompt-text">${audioData.prompt}</p>
-            </div>
-            <div class="parameters-section">
-                <h4><i class="fas fa-cogs"></i> 推理参数</h4>
-                <div class="parameter-list">
-                    ${Object.entries(audioData.parameters).map(([key, value]) => 
-                        `<div class="param-item">
-                            <span class="param-name">${key}:</span>
-                            <span class="param-value">${value}</span>
-                        </div>`
-                    ).join('')}
+    // 获取文件扩展名
+    const fileExtension = audioData.filename.split('.').pop().toLowerCase();
+    const mimeType = fileExtension === 'mp3' ? 'audio/mpeg' : 
+                    fileExtension === 'wav' ? 'audio/wav' : 
+                    fileExtension === 'ogg' ? 'audio/ogg' : 'audio/mpeg';
+    
+    audioDemo.innerHTML = `
+        <div class="audio-item">
+            <h3 class="audio-title">${audioData.audio.title}</h3>
+            <div class="audio-player">
+                <audio controls preload="metadata">
+                    <source src="audio/${audioData.filename}" type="${mimeType}">
+                    您的浏览器不支持音频播放。
+                </audio>
+                <div class="audio-download">
+                    <a href="audio/${audioData.filename}" download="${audioData.filename}" class="download-btn">
+                        <i class="fas fa-download"></i> 下载
+                    </a>
                 </div>
+            </div>
+            
+            <div class="info-table">
+                <table class="audio-info-table">
+                    <tr>
+                        <td class="info-label">Radar:</td>
+                        <td class="info-value">HR ${audioData.radar.hr} bpm</td>
+                    </tr>
+                    <tr>
+                        <td class="info-label">Agent:</td>
+                        <td class="info-value">${audioData.agent.mode}, ${audioData.agent.instruments}, ${audioData.agent.tempo}, ${audioData.agent.useCase}</td>
+                    </tr>
+                    <tr>
+                        <td class="info-label">Audio:</td>
+                        <td class="info-value">
+                            <button class="play-btn" onclick="togglePlay(this)">
+                                <i class="fas fa-play"></i> 播放
+                            </button>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     `;
     
-    return card;
+    return audioDemo;
+}
+
+// 播放按钮切换功能
+function togglePlay(button) {
+    const audioItem = button.closest('.audio-item');
+    const audio = audioItem.querySelector('audio');
+    const icon = button.querySelector('i');
+    
+    if (audio.paused) {
+        audio.play();
+        icon.className = 'fas fa-pause';
+        button.innerHTML = '<i class="fas fa-pause"></i> 暂停';
+    } else {
+        audio.pause();
+        icon.className = 'fas fa-play';
+        button.innerHTML = '<i class="fas fa-play"></i> 播放';
+    }
 }
 
 // 滚动动画效果
