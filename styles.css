@@ -401,6 +401,18 @@ body {
     border-radius: 10px;
 }
 
+.audio-loading {
+    text-align: center;
+    padding: 10px;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.audio-loading i {
+    margin-right: 8px;
+    color: #6366f1;
+}
+
 .audio-download {
     display: flex;
     justify-content: center;

@@ -130,7 +130,13 @@ function createAudioDemo(audioData, index) {
         audioDemo.innerHTML = `
             <div class="audio-item">
                 <div class="audio-player">
-                    <audio controls preload="none" onerror="console.error('Audio load error:', this.error)" onloadstart="console.log('Audio loading:', this.src)" oncanplay="console.log('Audio can play:', this.src)">
+                    <div class="audio-loading" id="loading-${index}" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i> 加载中...
+                    </div>
+                    <audio controls preload="none" 
+                           onloadstart="document.getElementById('loading-${index}').style.display='block'" 
+                           oncanplay="document.getElementById('loading-${index}').style.display='none'" 
+                           onerror="document.getElementById('loading-${index}').innerHTML='<i class=&quot;fas fa-exclamation-triangle&quot;></i> 加载失败'">
                         <source src="audio/${audioData.filename}" type="${mimeType}">
                         <source src="audio/${audioData.filename}" type="audio/wav">
                         <source src="audio/${audioData.filename}" type="audio/mpeg">
@@ -615,7 +621,10 @@ window.addEventListener('scroll', optimizedScrollHandler);
 // 错误处理
 window.addEventListener('error', function(e) {
     console.error('页面发生错误:', e.error);
-    showNotification('页面发生错误，请刷新重试', 'error');
+    // 只在开发环境或严重错误时显示通知
+    if (e.error && e.error.message && e.error.message.includes('Critical')) {
+        showNotification('页面发生严重错误，请刷新重试', 'error');
+    }
 });
 
 // 页面可见性API - 暂停/恢复音频
