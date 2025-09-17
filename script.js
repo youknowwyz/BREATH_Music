@@ -1,12 +1,16 @@
 // 页面加载完成后初始化
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Page loaded, initializing...');
-    initializeNavigation();
-    initializeScrollEffects();
-    loadAudioDemos();
-    initializeAudioPlayers();
-    initializeParameterTabs();
-    initializeTooltips();
+    try {
+        initializeNavigation();
+        initializeScrollEffects();
+        loadAudioDemos();
+        initializeAudioPlayers();
+        initializeParameterTabs();
+        initializeTooltips();
+    } catch (error) {
+        console.error('Error during initialization:', error);
+    }
 });
 
 // 导航栏功能
@@ -61,86 +65,118 @@ function initializeNavigation() {
 
 // 动态加载音频demo
 function loadAudioDemos() {
-    // 使用配置文件中的音频数据
-    const audioFiles = window.audioConfig || [];
-    
-    console.log('Loading audio demos, config:', audioFiles);
-    console.log('audioConfig available:', typeof window.audioConfig);
-    
-    if (audioFiles.length === 0) {
+    try {
+        // 使用配置文件中的音频数据
+        const audioFiles = window.audioConfig || [];
+        
+        console.log('Loading audio demos, config:', audioFiles);
+        console.log('audioConfig available:', typeof window.audioConfig);
+        
         const audioDemos = document.getElementById('audio-demos');
-        audioDemos.innerHTML = `
-            <div class="no-audio-message">
-                <i class="fas fa-music"></i>
-                <h3>暂无音频文件</h3>
-                <p>请在 audio-config.js 中配置音频文件信息</p>
-            </div>
-        `;
-        return;
-    }
+        if (!audioDemos) {
+            console.error('audio-demos element not found');
+            return;
+        }
+        
+        if (audioFiles.length === 0) {
+            audioDemos.innerHTML = `
+                <div class="no-audio-message">
+                    <i class="fas fa-music"></i>
+                    <h3>暂无音频文件</h3>
+                    <p>请在 audio-config.js 中配置音频文件信息</p>
+                </div>
+            `;
+            return;
+        }
 
-    const audioDemos = document.getElementById('audio-demos');
-    audioDemos.innerHTML = ''; // 清空现有内容
-    
-    audioFiles.forEach((audio, index) => {
-        console.log(`Creating demo ${index}:`, audio);
-        const audioDemo = createAudioDemo(audio, index);
-        audioDemos.appendChild(audioDemo);
-    });
+        audioDemos.innerHTML = ''; // 清空现有内容
+        
+        audioFiles.forEach((audio, index) => {
+            console.log(`Creating demo ${index}:`, audio);
+            const audioDemo = createAudioDemo(audio, index);
+            audioDemos.appendChild(audioDemo);
+        });
+    } catch (error) {
+        console.error('Error in loadAudioDemos:', error);
+        const audioDemos = document.getElementById('audio-demos');
+        if (audioDemos) {
+            audioDemos.innerHTML = `
+                <div class="error-message">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>加载音频演示时出错</h3>
+                    <p>请检查控制台错误信息</p>
+                </div>
+            `;
+        }
+    }
 }
 
 function createAudioDemo(audioData, index) {
-    const audioDemo = document.createElement('div');
-    audioDemo.className = 'audio-demo-item fade-in-up';
-    audioDemo.style.animationDelay = `${index * 0.1}s`;
-    
-    // 调试信息
-    console.log('Creating audio demo:', audioData);
-    
-    // 获取文件扩展名
-    const fileExtension = audioData.filename.split('.').pop().toLowerCase();
-    const mimeType = fileExtension === 'mp3' ? 'audio/mpeg' : 
-                    fileExtension === 'wav' ? 'audio/wav' : 
-                    fileExtension === 'ogg' ? 'audio/ogg' : 'audio/mpeg';
-    
-    audioDemo.innerHTML = `
-        <div class="audio-item">
-            <div class="audio-player">
-                <audio controls preload="metadata">
-                    <source src="audio/${audioData.filename}" type="${mimeType}">
-                    您的浏览器不支持音频播放。
-                </audio>
-                <div class="audio-download">
-                    <a href="audio/${audioData.filename}" download="${audioData.filename}" class="download-btn">
-                        <i class="fas fa-download"></i> 下载
-                    </a>
+    try {
+        const audioDemo = document.createElement('div');
+        audioDemo.className = 'audio-demo-item fade-in-up';
+        audioDemo.style.animationDelay = `${index * 0.1}s`;
+        
+        // 调试信息
+        console.log('Creating audio demo:', audioData);
+        
+        // 获取文件扩展名
+        const fileExtension = audioData.filename.split('.').pop().toLowerCase();
+        const mimeType = fileExtension === 'mp3' ? 'audio/mpeg' : 
+                        fileExtension === 'wav' ? 'audio/wav' : 
+                        fileExtension === 'ogg' ? 'audio/ogg' : 'audio/mpeg';
+        
+        audioDemo.innerHTML = `
+            <div class="audio-item">
+                <div class="audio-player">
+                    <audio controls preload="metadata">
+                        <source src="audio/${audioData.filename}" type="${mimeType}">
+                        您的浏览器不支持音频播放。
+                    </audio>
+                    <div class="audio-download">
+                        <a href="audio/${audioData.filename}" download="${audioData.filename}" class="download-btn">
+                            <i class="fas fa-download"></i> 下载
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="info-table">
+                    <table class="audio-info-table">
+                        <tr>
+                            <td class="info-label">Radar:</td>
+                            <td class="info-value">HR/RR ${audioData.radar.hr}/${audioData.radar.rr}</td>
+                        </tr>
+                        <tr>
+                            <td class="info-label">Agent:</td>
+                            <td class="info-value">Tonal Mode: ${audioData.agent.tonalMode}, Instruments: ${audioData.agent.instruments}, Tempo: ${audioData.agent.tempo}, Use-case: ${audioData.agent.useCase}</td>
+                        </tr>
+                        <tr>
+                            <td class="info-label">Audio:</td>
+                            <td class="info-value">
+                                <button class="play-btn" onclick="togglePlay(this)">
+                                    <i class="fas fa-play"></i> 播放
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
-            
-            <div class="info-table">
-                <table class="audio-info-table">
-                    <tr>
-                        <td class="info-label">Radar:</td>
-                        <td class="info-value">HR/RR ${audioData.radar.hr}/${audioData.radar.rr}</td>
-                    </tr>
-                    <tr>
-                        <td class="info-label">Agent:</td>
-                        <td class="info-value">Tonal Mode: ${audioData.agent.tonalMode}, Instruments: ${audioData.agent.instruments}, Tempo: ${audioData.agent.tempo}, Use-case: ${audioData.agent.useCase}</td>
-                    </tr>
-                    <tr>
-                        <td class="info-label">Audio:</td>
-                        <td class="info-value">
-                            <button class="play-btn" onclick="togglePlay(this)">
-                                <i class="fas fa-play"></i> 播放
-                            </button>
-                        </td>
-                    </tr>
-                </table>
+        `;
+        
+        return audioDemo;
+    } catch (error) {
+        console.error('Error creating audio demo:', error);
+        const errorDemo = document.createElement('div');
+        errorDemo.className = 'audio-demo-item error';
+        errorDemo.innerHTML = `
+            <div class="error-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>创建音频演示时出错</h3>
+                <p>请检查配置数据</p>
             </div>
-        </div>
-    `;
-    
-    return audioDemo;
+        `;
+        return errorDemo;
+    }
 }
 
 // 播放按钮切换功能
