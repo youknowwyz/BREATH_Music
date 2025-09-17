@@ -96,7 +96,6 @@ function createAudioDemo(audioData, index) {
     
     audioDemo.innerHTML = `
         <div class="audio-item">
-            <h3 class="audio-title">${audioData.audio.title}</h3>
             <div class="audio-player">
                 <audio controls preload="metadata">
                     <source src="audio/${audioData.filename}" type="${mimeType}">

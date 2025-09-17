@@ -13,13 +13,10 @@ const audioConfig = [
             instruments: 'Flute, Synthesizer, Guzheng, Strings',
             tempo: 'medium',
             useCase: 'relax'
-        },
-        audio: {
-            title: 'Demo1',
         }
     },
     {
-        filename: 'demo2.wav',
+        filename: 'Zhi0.wav',
         radar: {
             hr: 80,
             rr: 15
@@ -29,9 +26,6 @@ const audioConfig = [
             instruments: 'Guzheng, Strings, Synthesizer, Yangqin',
             tempo: 'slow',
             useCase: 'meditative, relax'
-        },
-        audio: {
-            title: 'Demo2',
         }
     }
 ];
