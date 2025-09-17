@@ -124,12 +124,13 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
     position: relative;
     z-index: 1;
+}
+
+.hero-content-full {
+    width: 100%;
+    text-align: center;
 }
 
 .hero-title {
@@ -169,12 +170,13 @@ body {
 
 /* Abstract样式 */
 .abstract-section {
-    margin: 40px 0;
-    padding: 30px;
+    margin: 40px auto;
+    padding: 40px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 900px;
 }
 
 .abstract-section h3 {
@@ -187,12 +189,14 @@ body {
 }
 
 .abstract-text {
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.95);
     text-align: justify;
     margin: 0;
     font-weight: 400;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .hero-buttons {
