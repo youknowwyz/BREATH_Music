@@ -1,21 +1,29 @@
-# BREATH_Music
+# BREATH Demo
 
-静态网站展示音频demo和Agent参数表
+Multimodal music generation system demonstration website
 
-## 使用方法
+## About BREATH
 
-### 添加音频文件
+BREATH is a multimodal music-generation system that turns millimetre-wave radar heart-rate & respiration signals into Chinese-pentatonic audio in real time.
 
-1. 将音频文件放入 `audio/` 目录，建议命名格式：`demo1_yu_90bpm.mp3`
-2. 在 `audio-config.js` 中添加对应的配置信息：
+A radar front-end captures HR/RR; an LLM agent maps these body states to musical parameters (tempo, genre, instrumentation, Gong–Yu mode); a latent-diffusion transformer synthesises 44.1 kHz stereo.
+
+The clips on this page illustrate how physiological changes modulate the mode and mood of the generated music.
+
+## Features
+
+- **Audio Demo**: Real-time generated music samples
+- **System Parameters**: L0 Events schema documentation
+- **Research Focus**: Academic demonstration, not commercial product
+
+## Audio Configuration
+
+Add audio files to `audio/` directory and configure in `audio-config.js`:
 
 ```javascript
 {
     filename: 'demo1_yu_90bpm.mp3',
-    radar: {
-        hr: 90,
-        rr: 15
-    },
+    radar: { hr: 90, rr: 15 },
     tonal: 'Yu',
     agent: {
         mode: 'Yu',
@@ -23,31 +31,12 @@
         tempo: 'slow',
         useCase: 'soothe'
     },
-    audio: {
-        title: 'Yu Demo',
-        duration: '4.5s'
-    }
+    audio: { title: 'Yu Demo', duration: '4.5s' }
 }
 ```
 
-### 显示格式
+## Deployment
 
-每个音频文件会显示：
-- **HTML5 audio标签**：可播放、可下载
-- **信息表格**：
-  - Radar: HR/RR 90/15
-  - Tonal: Yu (宫商角徵羽)
-  - Agent: Mode: Yu, Instruments: Erhu, Guzheng, Tempo: slow, Use-case: soothe
-  - Audio: 播放按钮
-
-### 支持的音频格式
-
-- WAV
-- MP3
-- OGG
-
-### 部署到GitHub Pages
-
-1. 推送代码到GitHub仓库
-2. 在仓库设置中启用GitHub Pages
-3. 访问 `https://你的用户名.github.io/仓库名`
+1. Push to GitHub repository
+2. Enable GitHub Pages in repository settings
+3. Access at `https://yourusername.github.io/repositoryname`

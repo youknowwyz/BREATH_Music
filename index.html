@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BREATH Music - AI音乐生成平台</title>
+    <title>BREATH Demo - Multimodal Music Generation</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -14,13 +14,13 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <i class="fas fa-music"></i>
-                <span>BREATH Music</span>
+                <span>BREATH Demo</span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#home">首页</a></li>
-                <li><a href="#demo">音频Demo</a></li>
-                <li><a href="#agent">Agent参数</a></li>
-                <li><a href="#about">关于</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#demo">Audio Demo</a></li>
+                <li><a href="#agent">Parameters</a></li>
+                <li><a href="#about">About</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -34,15 +34,14 @@
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">BREATH Music</h1>
-                <p class="hero-subtitle">基于AI的智能音乐生成平台</p>
+                <h1 class="hero-title">BREATH Demo</h1>
+                <p class="hero-subtitle">Multimodal Music Generation System</p>
                 <p class="hero-description">
-                    利用先进的机器学习技术，BREATH Music能够理解音乐的情感和结构，
-                    生成高质量的音乐作品。体验AI与艺术的完美融合。
+                    BREATH is a multimodal music-generation system that turns millimetre-wave radar heart-rate & respiration signals into Chinese-pentatonic audio in real time.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#demo" class="btn btn-primary">体验Demo</a>
-                    <a href="#agent" class="btn btn-secondary">查看参数</a>
+                    <a href="#demo" class="btn btn-primary">Audio Demo</a>
+                    <a href="#agent" class="btn btn-secondary">Parameters</a>
                 </div>
             </div>
             <div class="hero-visual">
@@ -63,21 +62,17 @@
     <!-- 音频Demo区域 -->
     <section id="demo" class="demo-section">
         <div class="container">
-            <h2 class="section-title">音频Demo展示</h2>
-            <p class="section-subtitle">体验AI生成的音乐作品</p>
+            <h2 class="section-title">Audio Demo</h2>
+            <p class="section-subtitle">Physiological changes modulate the mode and mood of generated music</p>
             
             <div class="audio-demos" id="audio-demos">
                 <!-- 动态加载的音频demo将在这里显示 -->
             </div>
 
             <div class="demo-controls">
-                <button class="btn btn-primary" onclick="generateMusic()">
-                    <i class="fas fa-magic"></i>
-                    生成新音乐
-                </button>
                 <button class="btn btn-secondary" onclick="downloadAll()">
                     <i class="fas fa-download"></i>
-                    下载全部
+                    Download All
                 </button>
             </div>
         </div>
@@ -86,8 +81,8 @@
     <!-- Agent参数表区域 -->
     <section id="agent" class="agent-section">
         <div class="container">
-            <h2 class="section-title">Agent参数配置</h2>
-            <p class="section-subtitle">AI音乐生成的核心参数设置</p>
+            <h2 class="section-title">System Parameters</h2>
+            <p class="section-subtitle">Core parameters for multimodal music generation</p>
             
             <div class="agent-parameters" id="agent-parameters">
                 <div class="parameter-section">
@@ -216,34 +211,18 @@
     <!-- 关于区域 -->
     <section id="about" class="about-section">
         <div class="container">
-            <h2 class="section-title">关于BREATH Music</h2>
+            <h2 class="section-title">About BREATH Demo</h2>
             <div class="about-content">
                 <div class="about-text">
                     <p>
-                        BREATH Music是一个基于深度学习的AI音乐生成平台，致力于将人工智能技术与音乐创作相结合，
-                        为音乐创作者和爱好者提供强大的创作工具。
+                        BREATH is a multimodal music-generation system that turns millimetre-wave radar heart-rate & respiration signals into Chinese-pentatonic audio in real time.
                     </p>
                     <p>
-                        我们的系统采用了最先进的Transformer架构和音乐信息检索技术，
-                        能够理解音乐的深层结构和情感表达，生成高质量、富有创意的音乐作品。
+                        A radar front-end captures HR/RR; an LLM agent maps these body states to musical parameters (tempo, genre, instrumentation, Gong–Yu mode); a latent-diffusion transformer synthesises 44.1 kHz stereo.
                     </p>
-                    <div class="features">
-                        <div class="feature">
-                            <i class="fas fa-brain"></i>
-                            <h4>智能生成</h4>
-                            <p>基于深度学习的音乐生成算法</p>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-palette"></i>
-                            <h4>多风格支持</h4>
-                            <p>支持古典、爵士、电子、摇滚等多种音乐风格</p>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-cogs"></i>
-                            <h4>参数可调</h4>
-                            <p>丰富的参数设置，满足不同创作需求</p>
-                        </div>
-                    </div>
+                    <p>
+                        The clips on this page illustrate how physiological changes modulate the mode and mood of the generated music.
+                    </p>
                 </div>
             </div>
         </div>
@@ -254,33 +233,20 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>BREATH Music</h3>
-                    <p>AI驱动的音乐生成平台</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
+                    <h3>BREATH Demo</h3>
+                    <p>Multimodal Music Generation System</p>
                 </div>
                 <div class="footer-section">
-                    <h4>快速链接</h4>
+                    <h4>Navigation</h4>
                     <ul>
-                        <li><a href="#demo">音频Demo</a></li>
-                        <li><a href="#agent">Agent参数</a></li>
-                        <li><a href="#about">关于我们</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>技术支持</h4>
-                    <ul>
-                        <li><a href="#">API文档</a></li>
-                        <li><a href="#">使用指南</a></li>
-                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#demo">Audio Demo</a></li>
+                        <li><a href="#agent">Parameters</a></li>
+                        <li><a href="#about">About</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 BREATH Music. All rights reserved.</p>
+                <p>&copy; 2024 BREATH Demo. Research demonstration.</p>
             </div>
         </div>
     </footer>
