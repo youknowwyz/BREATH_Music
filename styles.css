@@ -318,6 +318,90 @@ body {
     font-size: 0.9rem;
 }
 
+/* Prompt和参数样式 */
+.prompt-section, .parameters-section {
+    margin-bottom: 20px;
+}
+
+.prompt-section h4, .parameters-section h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.prompt-section h4 i, .parameters-section h4 i {
+    color: #6366f1;
+    font-size: 0.9rem;
+}
+
+.prompt-text {
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 8px;
+    border-left: 4px solid #6366f1;
+    font-style: italic;
+    color: #4b5563;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.parameter-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 8px;
+}
+
+.param-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: #f8fafc;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+}
+
+.param-name {
+    font-weight: 500;
+    color: #374151;
+    font-size: 0.85rem;
+}
+
+.param-value {
+    font-weight: 600;
+    color: #6366f1;
+    font-size: 0.85rem;
+}
+
+/* 无音频文件时的提示样式 */
+.no-audio-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: #6b7280;
+}
+
+.no-audio-message i {
+    font-size: 3rem;
+    color: #d1d5db;
+    margin-bottom: 20px;
+}
+
+.no-audio-message h3 {
+    font-size: 1.5rem;
+    color: #374151;
+    margin-bottom: 10px;
+}
+
+.no-audio-message p {
+    font-size: 1rem;
+    color: #6b7280;
+}
+
 .demo-controls {
     text-align: center;
     display: flex;

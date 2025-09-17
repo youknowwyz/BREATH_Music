@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     initializeNavigation();
     initializeScrollEffects();
+    loadAudioDemos();
     initializeAudioPlayers();
     initializeParameterTabs();
     initializeTooltips();
@@ -55,6 +56,69 @@ function initializeNavigation() {
             navbar.style.boxShadow = 'none';
         }
     });
+}
+
+// 动态加载音频demo
+function loadAudioDemos() {
+    // 使用配置文件中的音频数据
+    const audioFiles = window.audioConfig || [];
+    
+    if (audioFiles.length === 0) {
+        const demoGrid = document.getElementById('audio-demo-grid');
+        demoGrid.innerHTML = `
+            <div class="no-audio-message">
+                <i class="fas fa-music"></i>
+                <h3>暂无音频文件</h3>
+                <p>请在 audio-config.js 中配置音频文件信息</p>
+            </div>
+        `;
+        return;
+    }
+
+    const demoGrid = document.getElementById('audio-demo-grid');
+    
+    audioFiles.forEach((audio, index) => {
+        const demoCard = createAudioDemoCard(audio, index);
+        demoGrid.appendChild(demoCard);
+    });
+}
+
+function createAudioDemoCard(audioData, index) {
+    const card = document.createElement('div');
+    card.className = 'demo-card fade-in-up';
+    card.style.animationDelay = `${index * 0.1}s`;
+    
+    card.innerHTML = `
+        <div class="demo-header">
+            <h3>${audioData.title}</h3>
+            <span class="demo-tag">${audioData.tag}</span>
+        </div>
+        <div class="audio-player">
+            <audio controls preload="metadata">
+                <source src="audio/${audioData.filename}" type="audio/wav">
+                您的浏览器不支持音频播放。
+            </audio>
+        </div>
+        <div class="demo-info">
+            <div class="prompt-section">
+                <h4><i class="fas fa-quote-left"></i> Prompt</h4>
+                <p class="prompt-text">${audioData.prompt}</p>
+            </div>
+            <div class="parameters-section">
+                <h4><i class="fas fa-cogs"></i> 推理参数</h4>
+                <div class="parameter-list">
+                    ${Object.entries(audioData.parameters).map(([key, value]) => 
+                        `<div class="param-item">
+                            <span class="param-name">${key}:</span>
+                            <span class="param-value">${value}</span>
+                        </div>`
+                    ).join('')}
+                </div>
+            </div>
+        </div>
+    `;
+    
+    return card;
 }
 
 // 滚动动画效果
