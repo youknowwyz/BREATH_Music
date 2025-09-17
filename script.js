@@ -1,5 +1,6 @@
 // 页面加载完成后初始化
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Page loaded, initializing...');
     initializeNavigation();
     initializeScrollEffects();
     loadAudioDemos();
@@ -63,6 +64,9 @@ function loadAudioDemos() {
     // 使用配置文件中的音频数据
     const audioFiles = window.audioConfig || [];
     
+    console.log('Loading audio demos, config:', audioFiles);
+    console.log('audioConfig available:', typeof window.audioConfig);
+    
     if (audioFiles.length === 0) {
         const audioDemos = document.getElementById('audio-demos');
         audioDemos.innerHTML = `
@@ -76,8 +80,10 @@ function loadAudioDemos() {
     }
 
     const audioDemos = document.getElementById('audio-demos');
+    audioDemos.innerHTML = ''; // 清空现有内容
     
     audioFiles.forEach((audio, index) => {
+        console.log(`Creating demo ${index}:`, audio);
         const audioDemo = createAudioDemo(audio, index);
         audioDemos.appendChild(audioDemo);
     });
@@ -87,6 +93,9 @@ function createAudioDemo(audioData, index) {
     const audioDemo = document.createElement('div');
     audioDemo.className = 'audio-demo-item fade-in-up';
     audioDemo.style.animationDelay = `${index * 0.1}s`;
+    
+    // 调试信息
+    console.log('Creating audio demo:', audioData);
     
     // 获取文件扩展名
     const fileExtension = audioData.filename.split('.').pop().toLowerCase();
