@@ -393,6 +393,33 @@ body {
     gap: 15px;
 }
 
+.audio-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.audio-controls .play-btn {
+    background: #6366f1;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.audio-controls .play-btn:hover {
+    background: #4f46e5;
+    transform: translateY(-1px);
+}
+
+.audio-controls .play-btn i {
+    margin-right: 5px;
+}
+
 .audio-player audio {
     width: 100%;
     max-width: 500px;
