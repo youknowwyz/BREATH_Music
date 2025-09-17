@@ -36,7 +36,7 @@ const audioConfig = [
         },
         agent: {
             tonalMode: 'Jue',
-            instruments: 'Flute, Yangqin, Synthesizer, Harp',
+            instruments: 'Flute, Yangqin, Synthesizer, struck string',
             tempo: 'slow',
             useCase: 'touching, background'
         }
@@ -49,7 +49,7 @@ const audioConfig = [
         },
         agent: {
             tonalMode: 'Yu',
-            instruments: 'Flute, Yangqin, Synthesizer, struck string',
+            instruments: 'Guzheng, Flute, Strings',
             tempo: 'slow',
             useCase: 'touching, meditation'
         }
