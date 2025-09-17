@@ -156,6 +156,34 @@ body {
     line-height: 1.8;
 }
 
+/* Abstract样式 */
+.abstract-section {
+    margin: 40px 0;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.abstract-section h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.abstract-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.95);
+    text-align: justify;
+    margin: 0;
+    font-weight: 400;
+}
+
 .hero-buttons {
     display: flex;
     gap: 20px;
