@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    <h1>测试页面</h1>
+    <div id="test"></div>
+    
+    <script src="audio-config.js"></script>
+    <script>
+        console.log('audioConfig:', window.audioConfig);
+        document.getElementById('test').innerHTML = '<p>配置加载成功，音频数量: ' + window.audioConfig.length + '</p>';
+    </script>
+</body>
+</html>

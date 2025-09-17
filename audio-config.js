@@ -38,25 +38,6 @@ const audioConfig = [
             duration: '2.8s'
         }
     }
-    // 添加更多音频文件配置示例：
-    // {
-    //     filename: 'demo1_yu_90bpm.mp3',
-    //     radar: {
-    //         hr: 90,
-    //         rr: 15
-    //     },
-    //     tonal: 'Yu',
-    //     agent: {
-    //         mode: 'Yu',
-    //         instruments: 'Erhu, Guzheng',
-    //         tempo: 'slow',
-    //         useCase: 'soothe'
-    //     },
-    //     audio: {
-    //         title: 'Yu Demo',
-    //         duration: '4.5s'
-    //     }
-    // }
 ];
 
 // 导出配置供其他文件使用
