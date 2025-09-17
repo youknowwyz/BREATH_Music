@@ -126,48 +126,48 @@
                         </div>
                         
                         <div class="decision-criteria">
-                            <h4><i class="fas fa-clipboard-list"></i> 决策准则</h4>
+                            <h4><i class="fas fa-clipboard-list"></i> Decision Criteria</h4>
                             <div class="criteria-list">
                                 <div class="criteria-item">
-                                    <h6><i class="fas fa-heartbeat"></i> 生理启发：</h6>
-                                    <p>hr_bpm > 100 或 resp_rate > 20 → 倾向 intent="stabilize" 与镇静风格；hr_bpm < 60 → 倾向 intent="stimulate" 与提振风格；介于其间结合场景与画像。</p>
+                                    <h6><i class="fas fa-heartbeat"></i> Physiological Heuristics:</h6>
+                                    <p>hr_bpm > 100 or resp_rate > 20 → favor intent="stabilize" with calming styles; hr_bpm < 60 → favor intent="stimulate" with uplifting styles; in between, combine with scene and profile.</p>
                                 </div>
                                 
                                 <div class="criteria-item">
-                                    <h6><i class="fas fa-map-marker-alt"></i> 场景启发（缺省对照）：</h6>
-                                    <p>work→Shang/Gong，sleep/relax→Yu/Gong，exercise→Zhi/Jue，learn→Shang/Yu。</p>
+                                    <h6><i class="fas fa-map-marker-alt"></i> Scene Heuristics (Default Mapping):</h6>
+                                    <p>work→Shang/Gong, sleep/relax→Yu/Gong, exercise→Zhi/Jue, learn→Shang/Yu.</p>
                                 </div>
                                 
                                 <div class="criteria-item">
-                                    <h6><i class="fas fa-user-circle"></i> 画像先验：</h6>
-                                    <p>按 scene + 当前时间所落 time_range 选用 tempo_bpm_range / modes_top / styles_top / instruments_default。</p>
+                                    <h6><i class="fas fa-user-circle"></i> Profile Priors:</h6>
+                                    <p>Select tempo_bpm_range / modes_top / styles_top / instruments_default based on scene + current time within time_range.</p>
                                 </div>
                                 
                                 <div class="criteria-item">
-                                    <h6><i class="fas fa-link"></i> 延续性：</h6>
-                                    <p>若提供了 prev_mode / prev_instruments 且与当前判断不冲突，优先延续或做温和过渡。</p>
+                                    <h6><i class="fas fa-link"></i> Continuity:</h6>
+                                    <p>If prev_mode / prev_instruments are provided and don't conflict with current judgment, prioritize continuation or gentle transition.</p>
                                 </div>
                                 
                                 <div class="criteria-item">
-                                    <h6><i class="fas fa-tachometer-alt"></i> Tempo：</h6>
-                                    <p>优先选画像区间内的整数 BPM（建议取区间中位数附近）；如无画像则用常识范围：sleep(60–68)、work(70–84)、relax(60–76)、exercise(90–120)。</p>
+                                    <h6><i class="fas fa-tachometer-alt"></i> Tempo:</h6>
+                                    <p>Prefer integer BPM within profile range (suggest near median); if no profile, use common sense ranges: sleep(60–68), work(70–84), relax(60–76), exercise(90–120).</p>
                                 </div>
                                 
                                 <div class="criteria-item">
-                                    <h6><i class="fas fa-shield-alt"></i> 输出限制：</h6>
-                                    <p>BPM 在 40–180；style/mode/instruments 用受控词表；只输出 JSON。</p>
+                                    <h6><i class="fas fa-shield-alt"></i> Output Constraints:</h6>
+                                    <p>BPM within 40–180; style/mode/instruments use controlled vocabulary; output JSON only.</p>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="fallback-section">
-                            <h4><i class="fas fa-exclamation-triangle"></i> 失败与兜底</h4>
+                            <h4><i class="fas fa-exclamation-triangle"></i> Failure & Fallback</h4>
                             <div class="fallback-list">
                                 <div class="fallback-item">
-                                    <p>若 profile 无匹配 time_range：使用该场景的第一条先验；如仍缺失，按"场景启发 + 常识BPM"兜底。</p>
+                                    <p>If profile has no matching time_range: use first prior for that scene; if still missing, fallback to "scene heuristics + common sense BPM".</p>
                                 </div>
                                 <div class="fallback-item">
-                                    <p>若输入缺 prev_*：忽略延续性约束，直接按画像与场景选择。</p>
+                                    <p>If input lacks prev_*: ignore continuity constraints, select directly based on profile and scene.</p>
                                 </div>
                             </div>
                         </div>
