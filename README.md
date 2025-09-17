@@ -1,6 +1,6 @@
-# BREATH Demo
+# BREATH: A Bio-Radar Embodied Agent for Tonal and Human-Aware Diffusion Music Generation
 
-Multimodal music generation system demonstration website
+Multimodal music generation system research demonstration
 
 ## About BREATH
 
