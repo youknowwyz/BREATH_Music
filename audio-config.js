@@ -3,39 +3,35 @@
 
 const audioConfig = [
     {
-        filename: 'Gong0.wav',
+        filename: 'demo1.wav',
         radar: {
             hr: 60,
             rr: 12
         },
-        tonal: 'Yu',
         agent: {
-            mode: 'Yu',
-            instruments: 'Gong',
-            tempo: 'slow',
-            useCase: 'soothe'
-        },
-        audio: {
-            title: 'Gong Demo 0',
-            duration: '3.2s'
-        }
-    },
-    {
-        filename: 'Gong1.wav',
-        radar: {
-            hr: 80,
-            rr: 15
-        },
-        tonal: 'Yu',
-        agent: {
-            mode: 'Yu',
-            instruments: 'Gong',
+            tonalMode: 'Gong',
+            instruments: 'Flute, Synthesizer, Guzheng, Strings',
             tempo: 'medium',
             useCase: 'relax'
         },
         audio: {
-            title: 'Gong Demo 1',
-            duration: '2.8s'
+            title: 'Demo1',
+        }
+    },
+    {
+        filename: 'demo2.wav',
+        radar: {
+            hr: 80,
+            rr: 15
+        },
+        agent: {
+            tonalMode: 'Zhi',
+            instruments: 'Guzheng, Strings, Synthesizer, Yangqin',
+            tempo: 'slow',
+            useCase: 'meditative, relax'
+        },
+        audio: {
+            title: 'Demo2',
         }
     }
 ];
