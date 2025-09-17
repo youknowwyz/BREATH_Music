@@ -124,13 +124,16 @@ function createAudioDemo(audioData, index) {
         const fileExtension = audioData.filename.split('.').pop().toLowerCase();
         const mimeType = fileExtension === 'mp3' ? 'audio/mpeg' : 
                         fileExtension === 'wav' ? 'audio/wav' : 
-                        fileExtension === 'ogg' ? 'audio/ogg' : 'audio/mpeg';
+                        fileExtension === 'ogg' ? 'audio/ogg' : 
+                        fileExtension === 'm4a' ? 'audio/mp4' : 'audio/mpeg';
         
         audioDemo.innerHTML = `
             <div class="audio-item">
                 <div class="audio-player">
-                    <audio controls preload="metadata">
+                    <audio controls preload="none" onerror="console.error('Audio load error:', this.error)" onloadstart="console.log('Audio loading:', this.src)" oncanplay="console.log('Audio can play:', this.src)">
                         <source src="audio/${audioData.filename}" type="${mimeType}">
+                        <source src="audio/${audioData.filename}" type="audio/wav">
+                        <source src="audio/${audioData.filename}" type="audio/mpeg">
                         您的浏览器不支持音频播放。
                     </audio>
                     <div class="audio-download">
