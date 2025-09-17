@@ -747,11 +747,12 @@ body {
 }
 
 .stability-item {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    border-left: 3px solid #0ea5e9;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    background: white !important;
+    padding: 15px !important;
+    border-radius: 8px !important;
+    border-left: 3px solid #0ea5e9 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+    margin-bottom: 15px !important;
 }
 
 .stability-item h6 {
