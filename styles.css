@@ -463,6 +463,101 @@ body {
     color: #6b7280;
 }
 
+/* 参数表格样式 */
+.parameter-section {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+    margin-bottom: 30px;
+}
+
+.parameter-section h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.parameter-section h3 i {
+    color: #6366f1;
+    font-size: 1.3rem;
+}
+
+.parameter-table-container {
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+}
+
+.parameter-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.parameter-table th {
+    background: #f8fafc;
+    color: #374151;
+    font-weight: 600;
+    padding: 15px 12px;
+    text-align: left;
+    border-bottom: 2px solid #e5e7eb;
+    font-size: 0.85rem;
+}
+
+.parameter-table td {
+    padding: 12px;
+    border-bottom: 1px solid #f3f4f6;
+    vertical-align: top;
+    line-height: 1.5;
+}
+
+.parameter-table td:first-child {
+    font-weight: 600;
+    color: #1f2937;
+    background: #f9fafb;
+    width: 200px;
+}
+
+.parameter-table td:nth-child(2) {
+    color: #6366f1;
+    font-weight: 500;
+    width: 100px;
+}
+
+.parameter-table td:nth-child(3) {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    background: #f8fafc;
+    color: #374151;
+    width: 200px;
+}
+
+.parameter-table td:nth-child(4) {
+    color: #6b7280;
+    width: 300px;
+}
+
+.parameter-table code {
+    background: #e5e7eb;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: #374151;
+}
+
+.parameter-table tr:hover {
+    background: #f8fafc;
+}
+
+.parameter-table tr:hover td:first-child {
+    background: #f1f5f9;
+}
+
 .agent-tabs {
     display: flex;
     justify-content: center;
