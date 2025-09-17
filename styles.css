@@ -506,7 +506,8 @@ body {
 }
 
 .workflow-diagram {
-    max-width: 100%;
+    max-width: 800px;
+    width: 100%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -944,6 +945,11 @@ body {
     
     .info-value {
         padding: 12px 15px;
+    }
+    
+    .workflow-diagram {
+        max-width: 100%;
+        margin: 0 10px;
     }
 
     .parameter-grid {
