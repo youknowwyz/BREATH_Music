@@ -27,6 +27,32 @@ const audioConfig = [
             tempo: 'slow',
             useCase: 'meditative, relax'
         }
+    },
+    {
+        filename: 'demo3.wav',
+        radar: {
+            hr: 110,
+            rr: 22
+        },
+        agent: {
+            tonalMode: 'Jue',
+            instruments: 'Flute, Yangqin, Synthesizer, Harp',
+            tempo: 'slow',
+            useCase: 'touching, background'
+        }
+    },
+    {
+        filename: 'demo4.wav',
+        radar: {
+            hr: 90,
+            rr: 19
+        },
+        agent: {
+            tonalMode: 'Yu',
+            instruments: 'Flute, Yangqin, Synthesizer, struck string',
+            tempo: 'slow',
+            useCase: 'touching, meditation'
+        }
     }
 ];
 
