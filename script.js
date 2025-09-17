@@ -129,19 +129,14 @@ function createAudioDemo(audioData, index) {
         audioDemo.innerHTML = `
             <div class="audio-item">
                 <div class="audio-player">
-                    <audio id="audio-${index}" preload="metadata">
+                    <audio controls preload="metadata">
                         <source src="audio/${audioData.filename}" type="${mimeType}">
                         您的浏览器不支持音频播放。
                     </audio>
-                    <div class="audio-controls">
-                        <button class="play-btn" onclick="togglePlay(this, ${index})">
-                            <i class="fas fa-play"></i> 播放
-                        </button>
-                        <div class="audio-download">
-                            <a href="audio/${audioData.filename}" download="${audioData.filename}" class="download-btn">
-                                <i class="fas fa-download"></i> 下载
-                            </a>
-                        </div>
+                    <div class="audio-download">
+                        <a href="audio/${audioData.filename}" download="${audioData.filename}" class="download-btn">
+                            <i class="fas fa-download"></i> 下载
+                        </a>
                     </div>
                 </div>
                 
@@ -154,14 +149,6 @@ function createAudioDemo(audioData, index) {
                         <tr>
                             <td class="info-label">Agent:</td>
                             <td class="info-value">Tonal Mode: ${audioData.agent.tonalMode}, Instruments: ${audioData.agent.instruments}, Tempo: ${audioData.agent.tempo}, Use-case: ${audioData.agent.useCase}</td>
-                        </tr>
-                        <tr>
-                            <td class="info-label">Audio:</td>
-                            <td class="info-value">
-                                <button class="play-btn" onclick="togglePlay(this, ${index})">
-                                    <i class="fas fa-play"></i> 播放
-                                </button>
-                            </td>
                         </tr>
                     </table>
                 </div>
@@ -184,38 +171,6 @@ function createAudioDemo(audioData, index) {
     }
 }
 
-// 播放按钮切换功能
-function togglePlay(button, index) {
-    try {
-        const audio = document.getElementById(`audio-${index}`);
-        const icon = button.querySelector('i');
-        
-        if (!audio) {
-            console.error(`Audio element with id audio-${index} not found`);
-            return;
-        }
-        
-        console.log(`Toggling play for audio-${index}, current state:`, audio.paused ? 'paused' : 'playing');
-        
-        if (audio.paused) {
-            audio.play().then(() => {
-                icon.className = 'fas fa-pause';
-                button.innerHTML = '<i class="fas fa-pause"></i> 暂停';
-                console.log(`Audio ${index} started playing`);
-            }).catch(error => {
-                console.error(`Error playing audio ${index}:`, error);
-                button.innerHTML = '<i class="fas fa-exclamation-triangle"></i> 播放失败';
-            });
-        } else {
-            audio.pause();
-            icon.className = 'fas fa-play';
-            button.innerHTML = '<i class="fas fa-play"></i> 播放';
-            console.log(`Audio ${index} paused`);
-        }
-    } catch (error) {
-        console.error('Error in togglePlay:', error);
-    }
-}
 
 // 滚动动画效果
 function initializeScrollEffects() {
