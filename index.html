@@ -94,10 +94,36 @@
                     </div>
                 </div>
                 
-                <div class="prompt-details-section">
-                    <h3><i class="fas fa-code"></i> Prompt Details</h3>
-                    <div class="prompt-placeholder">
-                        <p>Prompt details will be added here...</p>
+                <div class="agent-details-section">
+                    <h3><i class="fas fa-robot"></i> Agent Details</h3>
+                    <div class="agent-workflow">
+                        <h4>Agent决策：</h4>
+                        <div class="workflow-steps">
+                            <div class="workflow-step">
+                                <h5><i class="fas fa-arrow-right"></i> 输入：</h5>
+                                <p>生理/环境/场景、画像先验（profile）</p>
+                            </div>
+                            
+                            <div class="workflow-step">
+                                <h5><i class="fas fa-brain"></i> LLM COT:</h5>
+                                <div class="cot-steps">
+                                    <div class="cot-step">
+                                        <strong>1. 分析状态：</strong>先解释生理信号（如心率、呼吸），再结合情境线索（如时间、温度）形成对当前用户状态的判断。
+                                    </div>
+                                    <div class="cot-step">
+                                        <strong>2. 决定音乐意图：</strong>基于上一步判断，选择高层目标（如 transition 或 stimulation，亦可等价"calming/稳态"）。
+                                    </div>
+                                    <div class="cot-step">
+                                        <strong>3. 生成结构化输出：</strong>把意图映射成四个可控参数——tempo / style / instrumentation / tonal mode（五声：宫商角徵羽）。
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="workflow-step">
+                                <h5><i class="fas fa-arrow-right"></i> 输出：</h5>
+                                <p>四个音乐参数——tempo(BPM) / style / instruments / mode，并给出 intent</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

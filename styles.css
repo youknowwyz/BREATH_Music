@@ -476,7 +476,7 @@ body {
     margin: 0 auto;
 }
 
-.workflow-section, .prompt-details-section {
+.workflow-section, .agent-details-section {
     background: white;
     border-radius: 15px;
     padding: 30px;
@@ -485,7 +485,7 @@ body {
     margin-bottom: 30px;
 }
 
-.workflow-section h3, .prompt-details-section h3 {
+.workflow-section h3, .agent-details-section h3 {
     font-size: 1.5rem;
     font-weight: 600;
     color: #1f2937;
@@ -495,7 +495,7 @@ body {
     gap: 12px;
 }
 
-.workflow-section h3 i, .prompt-details-section h3 i {
+.workflow-section h3 i, .agent-details-section h3 i {
     color: #6366f1;
     font-size: 1.3rem;
 }
@@ -514,14 +514,77 @@ body {
     border: 1px solid #e5e7eb;
 }
 
-.prompt-placeholder {
-    padding: 40px;
+/* Agent工作流程样式 */
+.agent-workflow h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 25px;
     text-align: center;
+}
+
+.workflow-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.workflow-step {
     background: #f8fafc;
-    border-radius: 10px;
-    border: 2px dashed #d1d5db;
+    border-radius: 12px;
+    padding: 20px;
+    border-left: 4px solid #6366f1;
+    transition: all 0.3s ease;
+}
+
+.workflow-step:hover {
+    background: #f1f5f9;
+    transform: translateX(5px);
+}
+
+.workflow-step h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.workflow-step h5 i {
+    color: #6366f1;
+    font-size: 1rem;
+}
+
+.workflow-step p {
     color: #6b7280;
-    font-style: italic;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.cot-steps {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.cot-step {
+    margin-bottom: 15px;
+    padding: 12px 15px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+.cot-step:last-child {
+    margin-bottom: 0;
+}
+
+.cot-step strong {
+    color: #1f2937;
+    font-weight: 600;
 }
 
 .parameter-placeholder {
