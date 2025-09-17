@@ -717,44 +717,59 @@ body {
     font-size: 0.95rem;
 }
 
-/* 失败与兜底样式 */
-.fallback-section {
+/* 系统稳定性策略样式 */
+.stability-section {
     margin-top: 25px;
     padding: 25px;
-    background: #fef3c7;
+    background: #f0f9ff;
     border-radius: 12px;
-    border: 1px solid #f59e0b;
+    border: 1px solid #0ea5e9;
 }
 
-.fallback-section h4 {
+.stability-section h4 {
     font-size: 1.2rem;
     font-weight: 600;
-    color: #92400e;
+    color: #0c4a6e;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.fallback-section h4 i {
-    color: #f59e0b;
+.stability-section h4 i {
+    color: #0ea5e9;
 }
 
-.fallback-list {
+.stability-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
 }
 
-.fallback-item {
+.stability-item {
     background: white;
     padding: 15px;
     border-radius: 8px;
-    border-left: 3px solid #f59e0b;
+    border-left: 3px solid #0ea5e9;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.fallback-item p {
+.stability-item h6 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #0c4a6e;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stability-item h6 i {
+    color: #0ea5e9;
+    font-size: 1rem;
+}
+
+.stability-item p {
     color: #374151;
     margin: 0;
     line-height: 1.5;

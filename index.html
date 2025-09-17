@@ -170,13 +170,15 @@
                             </div>
                         </div>
                         
-                        <div class="fallback-section">
-                            <h4><i class="fas fa-exclamation-triangle"></i> Failure & Fallback</h4>
-                            <div class="fallback-list">
-                                <div class="fallback-item">
+                        <div class="stability-section">
+                            <h4><i class="fas fa-shield-alt"></i> System Stability Strategies</h4>
+                            <div class="stability-list">
+                                <div class="stability-item">
+                                    <h6><i class="fas fa-clock"></i> Profile Fallback:</h6>
                                     <p>If profile has no matching time_range: use first prior for that scene; if still missing, fallback to "scene heuristics + common sense BPM".</p>
                                 </div>
-                                <div class="fallback-item">
+                                <div class="stability-item">
+                                    <h6><i class="fas fa-link"></i> Continuity Fallback:</h6>
                                     <p>If input lacks prev_*: ignore continuity constraints, select directly based on profile and scene.</p>
                                 </div>
                             </div>
