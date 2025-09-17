@@ -465,15 +465,62 @@ body {
     gap: 20px;
 }
 
-/* Agent参数区域样式 */
+/* System Architecture区域样式 */
 .agent-section {
     padding: 100px 0;
     background: #f8fafc;
 }
 
-.agent-parameters {
-    max-width: 800px;
+.system-content {
+    max-width: 1000px;
     margin: 0 auto;
+}
+
+.workflow-section, .prompt-details-section {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+    margin-bottom: 30px;
+}
+
+.workflow-section h3, .prompt-details-section h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.workflow-section h3 i, .prompt-details-section h3 i {
+    color: #6366f1;
+    font-size: 1.3rem;
+}
+
+.workflow-image {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.workflow-diagram {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+}
+
+.prompt-placeholder {
+    padding: 40px;
+    text-align: center;
+    background: #f8fafc;
+    border-radius: 10px;
+    border: 2px dashed #d1d5db;
+    color: #6b7280;
+    font-style: italic;
 }
 
 .parameter-placeholder {

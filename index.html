@@ -19,7 +19,7 @@
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#demo">Audio Demo</a></li>
-                <li><a href="#agent">Parameters</a></li>
+                <li><a href="#agent">System</a></li>
                 <li><a href="#about">About</a></li>
             </ul>
             <div class="hamburger">
@@ -43,7 +43,7 @@
                 </div>
                 <div class="hero-buttons">
                     <a href="#demo" class="btn btn-primary">Audio Demo</a>
-                    <a href="#agent" class="btn btn-secondary">Parameters</a>
+                    <a href="#agent" class="btn btn-secondary">System</a>
                 </div>
             </div>
             <div class="hero-visual">
@@ -83,127 +83,21 @@
     <!-- Agent参数表区域 -->
     <section id="agent" class="agent-section">
         <div class="container">
-            <h2 class="section-title">System Parameters</h2>
-            <p class="section-subtitle">Core parameters for multimodal music generation</p>
+            <h2 class="section-title">System Architecture</h2>
+            <p class="section-subtitle">Multimodal music generation workflow</p>
             
-            <div class="agent-parameters" id="agent-parameters">
-                <div class="parameter-section">
-                    <h3><i class="fas fa-database"></i> L0: Events - 使用记录</h3>
-                    <div class="parameter-table-container">
-                        <table class="parameter-table">
-                            <thead>
-                                <tr>
-                                    <th>字段</th>
-                                    <th>类型</th>
-                                    <th>示例</th>
-                                    <th>说明 (对应论文)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>event_id</strong></td>
-                                    <td>string</td>
-                                    <td><code>evt_20250626_2230_001</code></td>
-                                    <td>时间步ID (Timestamp ID)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>user_id</strong></td>
-                                    <td>string</td>
-                                    <td><code>xiaomei</code></td>
-                                    <td>用户 (User)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>time_local</strong></td>
-                                    <td>datetime</td>
-                                    <td><code>2025-06-26T22:30:00+08:00</code></td>
-                                    <td>时序 (可由LLM 推断"late evening"但不落库)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>scene</strong></td>
-                                    <td>enum</td>
-                                    <td><code>sleep / work / exercise / relax</code></td>
-                                    <td>场景标签 (Scene tag)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>inputs.hr_bpm</strong></td>
-                                    <td>int</td>
-                                    <td><code>72</code></td>
-                                    <td>心率数值 (Heart rate value)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>inputs.resp_rate</strong></td>
-                                    <td>int</td>
-                                    <td><code>14</code></td>
-                                    <td>呼吸数值(次/分) (Respiration rate value)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>inputs.temperature_c?</strong></td>
-                                    <td>int</td>
-                                    <td><code>25</code></td>
-                                    <td>可选环境温度(数值) (Optional ambient temperature)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>inputs.user_context?</strong></td>
-                                    <td>string</td>
-                                    <td><code>"play calm music"</code></td>
-                                    <td>可选用户意图 (Optional user intent)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>inputs.prev_instruments?</strong></td>
-                                    <td>string[]</td>
-                                    <td><code>["pads","strings"]</code></td>
-                                    <td>上一步器乐 (Previous instruments)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>inputs.prev_mode?</strong></td>
-                                    <td>enum</td>
-                                    <td><code>Gong/Shang/Jue/Zhi/Yu</code></td>
-                                    <td>上一步调式 (Previous mode)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>outputs.intent</strong></td>
-                                    <td>enum</td>
-                                    <td><code>stabilize/stimulate/transition</code></td>
-                                    <td>决策(论文步骤2) (Decision - Paper Step 2)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>outputs.tempo</strong></td>
-                                    <td>int | enum</td>
-                                    <td><code>66</code> 或 <code>"moderate"</code></td>
-                                    <td>四参之一 (One of the four parameters)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>outputs.style</strong></td>
-                                    <td>string</td>
-                                    <td><code>"ambient_relaxed_traditional_chinese"</code></td>
-                                    <td>四参之一 (One of the four parameters)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>outputs.instruments</strong></td>
-                                    <td>string[]</td>
-                                    <td><code>["pads", "strings"]</code></td>
-                                    <td>四参之一 (One of the four parameters)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>outputs.mode</strong></td>
-                                    <td>enum</td>
-                                    <td><code>Yu</code></td>
-                                    <td>四参之一 (宫商角徵羽) (One of the four parameters)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>feedback.thumb?</strong></td>
-                                    <td>enum</td>
-                                    <td>👍/👎</td>
-                                    <td>可选反馈 (Optional feedback)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>feedback.listen_secs?</strong></td>
-                                    <td>int</td>
-                                    <td><code>2100</code></td>
-                                    <td>可选聆听时长 (Optional listening duration)</td>
-                                </tr>
-                            </tbody>
-                        </table>
+            <div class="system-content" id="system-content">
+                <div class="workflow-section">
+                    <h3><i class="fas fa-project-diagram"></i> System Workflow</h3>
+                    <div class="workflow-image">
+                        <img src="breath_flow.png" alt="BREATH System Workflow" class="workflow-diagram">
+                    </div>
+                </div>
+                
+                <div class="prompt-details-section">
+                    <h3><i class="fas fa-code"></i> Prompt Details</h3>
+                    <div class="prompt-placeholder">
+                        <p>Prompt details will be added here...</p>
                     </div>
                 </div>
             </div>
@@ -242,7 +136,7 @@
                     <h4>Navigation</h4>
                     <ul>
                         <li><a href="#demo">Audio Demo</a></li>
-                        <li><a href="#agent">Parameters</a></li>
+                        <li><a href="#agent">System</a></li>
                         <li><a href="#about">About</a></li>
                     </ul>
                 </div>
