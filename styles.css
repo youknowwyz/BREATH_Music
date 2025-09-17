@@ -400,11 +400,12 @@ body {
 }
 
 .image-caption {
-    padding: 15px 20px;
+    padding: 20px;
     font-size: 0.95rem;
     color: #6b7280;
-    text-align: center;
-    font-weight: 500;
+    text-align: left;
+    font-weight: 400;
+    line-height: 1.6;
 }
 
 /* 视频区域响应式设计 */
